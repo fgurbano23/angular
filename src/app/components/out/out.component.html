@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row m-5">
+    <div class="col-md-4 offset-md-4">
+      <table class="table">
+        <thead>
+        <th class="text-center">Usuario</th>
+        <th class="text-center">Contraseña</th>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="text-center">{{dataUser.userName}}</td>
+          <td class="text-center">{{dataUser.password}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-danger btn-block " (click)="onCloseSession()">Cerrar Sesion</button>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row m-5">
+    <div class="col-md-12 ">
+      <table class="table">
+        <thead>
+        <th class="text-center">PersonID</th>
+        <th class="text-center">LastName</th>
+        <th class="text-center">FirstName</th>
+        <th class="text-center">Address</th>
+        <th class="text-center">City</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of restAux | paginate: {itemsPerPage : 10, currentPage:p } ">
+          <td class="text-center">{{item.PersonID}}</td>
+          <td class="text-center">{{item.LastName}}</td>
+          <td class="text-center">{{item.FirstName}}</td>
+          <td class="text-center">{{item.Address}}</td>
+          <td class="text-center">{{item.City}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
